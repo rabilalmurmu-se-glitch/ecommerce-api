@@ -1,0 +1,7 @@
+PORT=6000
+ENV='development'
+
+MONGO_URI="mongodb+srv://rabilalmurmuse_db_user:dURwOkFF3YK8AWi6@cluster0.kubxuer.mongodb.net/ecomm?appName=Cluster0"
+
+JWT_SECRET="ecomm-api-jwt-secrect"
+JWT_EXPIRES_IN='1d'
