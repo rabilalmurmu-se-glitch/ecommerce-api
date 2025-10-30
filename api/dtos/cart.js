@@ -2,10 +2,6 @@ import Joi from "joi";
 
 // For adding an item to the cart
 export const addItemToCartSchema = Joi.object({
-  userId: Joi.string().required().messages({
-    "any.required": "User ID is required",
-  }),
-
   productId: Joi.string().required().messages({
     "any.required": "Product ID is required",
   }),
@@ -18,10 +14,6 @@ export const addItemToCartSchema = Joi.object({
 
 // For updating quantity of a cart item
 export const updateCartItemSchema = Joi.object({
-  userId: Joi.string().required().messages({
-    "any.required": "User ID is required",
-  }),
-
   productId: Joi.string().required().messages({
     "any.required": "Product ID is required",
   }),
@@ -33,10 +25,6 @@ export const updateCartItemSchema = Joi.object({
 
 // For removing an item from the cart
 export const removeCartItemSchema = Joi.object({
-  userId: Joi.string().required().messages({
-    "any.required": "User ID is required",
-  }),
-
   productId: Joi.string().required().messages({
     "any.required": "Product ID is required",
   }),

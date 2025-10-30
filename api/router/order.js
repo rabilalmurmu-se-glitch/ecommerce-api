@@ -6,11 +6,14 @@ import {
   useAccessControl,
 } from "../middlewares/auth.js";
 import { validateSchema } from "../middlewares/validateSchema.js";
-import { createOrderSchema, updateOrderStatusSchema } from "../dtos/order.js";
+import {
+  createOrderSchema,
+  createOrderWithPaymentSchema,
+  updateOrderStatusSchema,
+} from "../dtos/order.js";
 
 const router = Router();
 
-// ✅ Create a new order (user must be logged in)
 router.post(
   "/",
   authMiddleware,
@@ -18,10 +21,13 @@ router.post(
   orderController.createOrder
 );
 
-// 💳 Pay for an order
-router.post("/pay", authMiddleware, orderController.payforOrder);
+router.post(
+  "/pay",
+  authMiddleware,
+  validateSchema(createOrderWithPaymentSchema),
+  orderController.payforOrder
+);
 
-// 📦 Get all orders (admin only)
 router.get(
   "/",
   authMiddleware,

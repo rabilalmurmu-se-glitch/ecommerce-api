@@ -22,7 +22,7 @@ export const getAllProducts = async (req, res) => {
     const { page, limit, search } = req.query;
     const result = await productService.getAllProducts(
       { ...filter },
-      { page, limit, search }
+      { page: Number(page), limit: Number(limit), search }
     );
     return successResponse(
       res,

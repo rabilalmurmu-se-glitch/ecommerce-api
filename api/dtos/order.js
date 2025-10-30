@@ -25,6 +25,23 @@ export const createOrderSchema = Joi.object({
   }),
 });
 
+export const createOrderWithPaymentSchema = Joi.object({
+  orderId: Joi.string().required().messages({
+    "any.required": "Order ID is required",
+  }),
+  transactionId: Joi.string().required().messages({
+    "any.required": "Transaction ID is required",
+  }),
+  amount: Joi.number().min(0).required().messages({
+    "number.base": "Amount must be a number",
+    "number.min": "Amount must be positive",
+    "any.required": "Amount is required",
+  }),
+  status: Joi.string().valid("SUCCESS", "FAILED").required().messages({
+    "any.only": "Status must be either SUCCESS or FAILED",
+  }),
+});
+
 // Schema for updating order status
 export const updateOrderStatusSchema = Joi.object({
   status: Joi.string()
