@@ -69,11 +69,6 @@ api/
    npm run dev
    ```
 
-5. (Optional) Seed the database:
-   ```bash
-   npm run seeddb
-   ```
-
 ## Available Scripts
 
 - `npm start`: Start the production server
