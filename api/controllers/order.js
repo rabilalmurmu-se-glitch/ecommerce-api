@@ -3,7 +3,7 @@ import { errorResponse, successResponse } from "../utils/responseUtil.js";
 
 export const createOrder = async (req, res) => {
   try {
-    const userId = req.user.id; // assuming JWT middleware adds user info
+    const userId = req.user.id;
     const { items } = req.body;
     console.log(items)
 
